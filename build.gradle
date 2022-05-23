@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.7'
 }
 
 group 'org.example'
@@ -17,3 +19,17 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+javafx{
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.graphics', 'javafx.swing', 'javafx.base' ]
+    version = '11.0.2'
+}
+
+mainClassName = 'test.main'
+
+jar
+        {
+            manifest{
+                attributes "Main-Class": "$mainClassName"
+            }
+        }
